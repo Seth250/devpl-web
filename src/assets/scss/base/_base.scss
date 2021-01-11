@@ -1,0 +1,13 @@
+:root{
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app{
+  min-height: 100vh;
+  background: #262A41;
+  display: flex;
+  align-items: center;
+  padding: $page-padding-top 1em $page-padding-bottom 1em;
+}
