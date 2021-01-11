@@ -5,7 +5,6 @@
 			<PageView
 				title="some text"
 			/>
-			<router-view />
 		</main>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
