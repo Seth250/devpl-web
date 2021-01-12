@@ -1,11 +1,9 @@
 <template>
   <div id="app">
 		<DashBoard />
-		<main role="main" class="main">
-			<PageView
-				title="some text"
-			/>
-		</main>
+		<!-- <main role="main" class="main"> -->
+		<PageView />
+		<!-- </main> -->
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>

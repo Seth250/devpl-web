@@ -1,3 +1,127 @@
 .dashboard{
+  border: 1px solid blue;
   width: 50vw;
+  color: $pry-clr;
+  max-width: 38.875rem;
+  margin: 0 10.5em 0 9.25em;
+
+  &__heading{
+
+    .hello{
+      font: 200 3.0625rem/5rem $font-stack;
+      letter-spacing: -0.05px;
+      // border: 1px solid red;
+    }
+
+    span{
+      font: bold 2.3125rem/5.125rem $font-stack;
+      height: 3.625rem;
+    }
+
+    .welcome{
+      // border: 1px solid green;
+      font: 300 1.125rem/2.5rem $font-stack;
+      letter-spacing: 0.23px;
+      margin-bottom: 2.5em;
+      opacity: 0.66;
+    }
+  }
+}
+
+.search{
+  background: #3C3F54;
+  border-radius: $box-bdr-rad;
+  border: 1px solid #3C3F54;
+  height: 5.85rem;
+  padding: 0 2.47em;
+  margin-bottom: 5.125em;
+  display: flex;
+  align-items: center;
+
+  &:focus-within{
+    box-shadow: 0 0 0.2rem 0.1rem rgba(18, 97, 160, 0.6);
+  }
+
+  &__icon{
+    // border: 1px solid green;
+    // fill: $pry-clr;
+    stroke: $pry-clr;
+    margin-right: 2.2em;
+
+    path{
+      stroke-width: 1.75px;
+      transform: translate(5%, 10%) scale(1.1);
+    }
+  }
+
+  &__input{
+    opacity: 0.7;
+    background: inherit;
+    color: inherit;
+    width: 100%;
+    font: 500 1.375rem/4.9375rem $font-stack; 
+    border: none;
+
+    &:focus{
+      outline: none;
+    }
+
+    &::placeholder{
+      color: inherit;
+    }
+  }
+}
+
+  
+.user-select{
+
+  > p{
+    font: 500 1.375rem/4.9375rem $font-stack;
+    opacity: 0.7;
+    letter-spacing: -0.02px;
+  }
+
+  &__list{
+    display: flex;
+  }
+
+  &__item{
+    list-style: none;
+    // border: 2px solid green;
+    text-align: center;
+    margin-right: 2.8125em;
+  }
+
+  &__btn{
+    // border: 1px solid red;
+    height: 7.1875rem;
+    width: 7.8125rem;
+    border-radius: $box-bdr-rad;
+    color: $pry-clr;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+
+    &:hover{
+      transform: translateX(5%) scale(1.125);
+      box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.btn-all{
+  background: #F935A9;
+  font-size: 2.5rem;
+}
+
+.btn-male,
+.btn-female{
+  font-size: 3.5rem;
+}
+
+.btn-male{
+  background: #30BBB5;
+}
+
+.btn-female{
+  background: #7946C1;
 }

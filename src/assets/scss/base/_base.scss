@@ -8,6 +8,7 @@
   min-height: 100vh;
   background: #262A41;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: $page-padding-top 1em $page-padding-bottom 1em;
+  padding: $page-padding-top 0 $page-padding-bottom 0;
 }

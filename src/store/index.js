@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+		title: null,
 		users: [],
 		countries,
 		showCountries: true
@@ -15,12 +16,19 @@ export default new Vuex.Store({
 	//   getUsers: (state) => state.users
 	// },
 	mutations: {
-		setAllUsers: (state, { results }) => { state.users = results }
+		setUsers: (state, { results }) => { state.users = results },
+		setTitle: (state, title) => { state.title = title }
 	},
 	actions: {
-		async fetchAllUsers({ commit }) {
-			const { data } = await axios.get('https://randomuser.me/api/')
-			console.log(data)
+		async fetchUsers({ commit }, gender = null) {
+			let url = 'https://randomuser.me/api/?results=20'
+			let title = 'all users'
+			if (gender === 'male' || gender === 'female') {
+				url += `&gender=${gender}`
+				title = `${gender} users`
+			}
+			const { data } = await axios.get(url)
+			commit('setTitle', title)
 			commit('setUsers', data)
 		}
 	},
