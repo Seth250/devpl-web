@@ -14,7 +14,7 @@
 			<p>Show Users</p>
 			<ul class="user-select__list">
 				<li class="user-select__item">
-					<button type="button" class="user-select__btn btn-all" @click="getUsers()">
+					<button type="button" class="user-select__btn btn-all btn-active" @click="getUsers()">
 						<i class="fas fa-users"></i>
 					</button>
 					<p>All users</p>
