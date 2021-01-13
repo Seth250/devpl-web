@@ -1,0 +1,19 @@
+.search{
+  display: flex;
+  align-items: center;
+
+  &-input{
+    background: inherit;
+    color: inherit;
+    width: 100%;
+    border: none;
+
+    &:focus{
+      outline: none;
+    }
+
+    &::placeholder{
+      color: inherit;
+    }
+  }
+}
