@@ -13,7 +13,15 @@
 				</select>
 			</div>
 			<div class="">
-				<input type="checkbox" :checked="showCountries">
+				<div class="slider" :class="sliderStyle">
+					<input
+						type="checkbox"
+						class="slider__box"
+						:checked="showCountries"
+						@click="updateCountriesChoice(!showCountries)"
+					>
+				</div>
+				Show Country
 			</div>
 		</div>
 		<router-view />
@@ -21,7 +29,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 	name: 'PageView',
@@ -39,7 +47,15 @@ export default {
 			titleElem: null
 		}
 	},
-	computed: mapState(['countries', 'showCountries', 'title']),
+	computed: {
+		...mapState(['countries', 'showCountries', 'title']),
+		sliderStyle() {
+			return {
+				'slider-active': this.showCountries
+			}
+		}
+	},
+	methods: mapActions(['updateCountriesChoice']),
 	mounted() {
 		this.titleElem = document.getElementById('title')
 	}

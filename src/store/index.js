@@ -10,14 +10,15 @@ export default new Vuex.Store({
 		title: null,
 		users: [],
 		countries,
-		showCountries: true
+		showCountries: localStorage.getItem('showCountries') !== 'false'
 	},
 	// getters: {
 	//   getUsers: (state) => state.users
 	// },
 	mutations: {
 		setUsers: (state, { results }) => { state.users = results },
-		setTitle: (state, title) => { state.title = title }
+		setTitle: (state, title) => { state.title = title },
+		setShowCountries: (state, showCountries) => { state.showCountries = showCountries }
 	},
 	actions: {
 		async fetchUsers({ commit }, gender = null) {
@@ -30,6 +31,10 @@ export default new Vuex.Store({
 			const { data } = await axios.get(url)
 			commit('setTitle', title)
 			commit('setUsers', data)
+		},
+		updateCountriesChoice({ commit }, value) {
+			localStorage.setItem('showCountries', value)
+			commit('setShowCountries', value)
 		}
 	},
 	modules: {
