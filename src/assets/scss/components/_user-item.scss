@@ -3,7 +3,7 @@
   color: #262A41;
   border-radius: 1.125rem;
   box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.05);
-  width: 48.5rem;
+  width: 50rem;
   height: 12.3125rem;
   margin-bottom: 1.68em;
   display: flex;
@@ -44,6 +44,11 @@
     font-size: 1.125rem;
     margin-bottom: 0.4em;
     opacity: 0.72;
+
+    .country{
+      font-weight: 600;
+      font-size: 103%;
+    }
   }
 
   &__contact{
@@ -96,7 +101,7 @@
     background: #30BBB5;
     border: none;
     border-radius: 0.8rem;
-    box-shadow: 2px 15px 30px #30BBB574;
+    box-shadow: 2px 15px 30px rgba(48, 187, 181, 0.46);
     display: flex;
     align-items: center;
     justify-content: center;

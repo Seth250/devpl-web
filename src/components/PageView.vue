@@ -28,6 +28,19 @@
 			</div>
 		</div>
 		<router-view />
+		<div class="main__footer">
+			<a class="main__download" tabindex="0" :href="downloadLink">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="main__download-icon" version="1.1" id="Capa_1" width="30" height="30" x="0px" y="0px" viewBox="0 0 452.168 452.168" xml:space="preserve" style="enable-background:new 0 0 452.168 452.168;">
+					<g>
+						<polygon points="140.446,344.424 226.096,430.075 311.739,344.424 294.352,327.037 238.395,383.002      238.395,216.212 213.798,216.212 213.798,383.002 157.841,327.037    "/>
+					</g>
+					<g>
+						<path d="M357.34,105.037c-4.072,0-8.185,0.268-12.282,0.797c-20.809-30.458-58.688-46.837-95.681-40.025     c-17.428-27.109-47.536-43.715-79.985-43.715c-49.064,0-89.414,36.896-94.576,85.139C31.084,116.613,0,154.727,0,200.207     c0,52.47,42.691,95.161,95.161,95.161h95.031v-24.386H95.169c-39.025,0-70.775-31.75-70.775-70.776     c0-36.351,27.231-66.606,63.33-70.377l10.909-2.471v-10.12c0-39.017,31.742-70.767,70.767-70.767     c26.743,0,50.909,14.867,63.07,38.798l4.576,8.998l9.689-2.812c32.051-9.291,65.972,5.406,81.635,33.693l4.406,7.958l8.893-1.951     c5.202-1.146,10.461-1.731,15.664-1.731c38.855,0,70.467,31.75,70.467,70.775c0,39.017-31.75,70.776-70.776,70.776h-95.698     v24.386h95.681c52.47,0,95.161-42.691,95.161-95.161C452.168,147.729,409.631,105.037,357.34,105.037z"/>
+					</g>
+				</svg>
+				<p>Download results</p>
+			</a>
+		</div>
 	</main>
 </template>
 
@@ -50,15 +63,28 @@ export default {
 			titleElem: null
 		}
 	},
+	methods: mapActions(['updateCountriesChoice']),
 	computed: {
 		...mapState(['countries', 'showCountries', 'title']),
 		sliderStyle() {
 			return {
 				'slider-active': this.showCountries
 			}
+		},
+		downloadLink() {
+			let url = 'https://randomuser.me/api/?results=3&format=csv&dl&noinfo'
+			const queryParams = this.$route.query
+			if (queryParams.page) {
+				url += `&page=${queryParams.page}`
+			}
+			if (queryParams.gender) {
+				url += `&$gender=${queryParams.gender}`
+			} else {
+				url += '&seed=default'
+			}
+			return url
 		}
 	},
-	methods: mapActions(['updateCountriesChoice']),
 	mounted() {
 		this.titleElem = document.getElementById('title')
 	}

@@ -15,8 +15,6 @@ export default new Vuex.Store({
 	},
 	getters: {
 		getPageUsers: state => state.users
-		// getMaleUsers: state => state.users.filter(user => user.gender === 'male'),
-		// getFemaleUsers: state => state.users.filter(user => user.gender === 'female')
 	},
 	mutations: {
 		setUsers: (state, { results }) => { state.users = results },
