@@ -27,7 +27,7 @@
   &__facet{
     display: flex;
     align-items: center;
-    margin-bottom: 3.125em;
+    margin-bottom: 2em;
   }
 
   &__search{
@@ -105,7 +105,9 @@
   }
 
   &__footer{
-    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__download{
@@ -118,6 +120,7 @@
     padding-left: 1.5em;
     border-radius: $sec-bdr-rad;
     cursor: pointer;
+    text-decoration: none;
     // border: 1px solid blue;
 
     &-icon{
@@ -138,6 +141,37 @@
     &:focus{
       outline: none;
       box-shadow: 0 0 0.15rem 0.1rem rgba(86, 156, 214, 0.6);
+    }
+  }
+
+  &__pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .left-icon,
+    .right-icon{
+      width: 3.1875rem;
+      height: 3rem;
+      border: 1px solid transparent;
+      border-radius: 0.69rem;
+      cursor: pointer;
+    }
+
+    i{
+      font-size: 175%;
+    }
+
+    .left-icon{
+      background: #E2E2EA;
+      color: #323874;
+      margin-right: 0.5em;
+    }
+
+    .right-icon{
+      background: #262A41;
+      color: $pry-clr; 
+      margin-right: 2em;
     }
   }
 }
@@ -183,4 +217,8 @@
   &-active{
     background: #30BBB5;
   }
+}
+
+[disabled] {
+  opacity: 0.7;
 }

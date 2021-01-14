@@ -59,11 +59,12 @@ export default {
 		$route: {
 			immediate: true,
 			handler(newRoute) {
-				const gender = newRoute.query.gender || null
-				const pageNumber = newRoute.query.page || 1
-				if ((gender === 'male' || gender === 'female' || gender === null) && pageNumber >= 1) {
-					this.fetchPageUsers(gender, pageNumber)
+				const gender = newRoute.query.gender
+				const payload = {
+					pageNumber: newRoute.query.page > 1 ? newRoute.query.page : 1,
+					gender: gender === 'male' || gender === 'female' ? gender : null
 				}
+				this.fetchPageUsers(payload)
 			}
 		}
 	},
@@ -75,8 +76,6 @@ export default {
 				routerInfo.query = { gender }
 			}
 			this.$router.push(routerInfo)
-			// this.fetchUsers(gender)
-			// this.fetchUsers(gender)
 		}
 	},
 	computed: {
@@ -84,8 +83,5 @@ export default {
 			return this.$route.query.gender
 		}
 	}
-	// created() {
-	// 	this.fetchUsers()
-	// }
 }
 </script>

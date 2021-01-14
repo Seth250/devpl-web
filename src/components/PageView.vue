@@ -29,7 +29,7 @@
 		</div>
 		<router-view />
 		<div class="main__footer">
-			<a class="main__download" tabindex="0" :href="downloadLink">
+			<a class="main__download" :href="downloadLink" target="_blank" :disabled="!isHomePage">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="main__download-icon" version="1.1" id="Capa_1" width="30" height="30" x="0px" y="0px" viewBox="0 0 452.168 452.168" xml:space="preserve" style="enable-background:new 0 0 452.168 452.168;">
 					<g>
 						<polygon points="140.446,344.424 226.096,430.075 311.739,344.424 294.352,327.037 238.395,383.002      238.395,216.212 213.798,216.212 213.798,383.002 157.841,327.037    "/>
@@ -40,6 +40,14 @@
 				</svg>
 				<p>Download results</p>
 			</a>
+			<div class="main__pagination" :disabled="!isHomePage">
+				<button type="button" class="left-icon" @click="getPage(--pageNumber)" :disabled="pageNumber <= 1">
+					<i class="fas fa-angle-left"></i>
+				</button>
+				<button type="button" class="right-icon" @click="getPage(++pageNumber)">
+					<i class="fas fa-angle-right"></i>
+				</button>
+			</div>
 		</div>
 	</main>
 </template>
@@ -60,12 +68,18 @@ export default {
 	data() {
 		return {
 			country: '',
-			titleElem: null
+			titleElem: null,
+			pageNumber: null
 		}
 	},
-	methods: mapActions(['updateCountriesChoice']),
+	methods: {
+		...mapActions(['updateCountriesChoice']),
+		getPage(number) {
+			this.$router.push({ name: 'Home', query: { page: number } })
+		}
+	},
 	computed: {
-		...mapState(['countries', 'showCountries', 'title']),
+		...mapState(['countries', 'showCountries', 'title', 'page']),
 		sliderStyle() {
 			return {
 				'slider-active': this.showCountries
@@ -83,10 +97,15 @@ export default {
 				url += '&seed=default'
 			}
 			return url
+		},
+		isHomePage() {
+			return this.$route.name === 'Home'
 		}
 	},
 	mounted() {
 		this.titleElem = document.getElementById('title')
+		const page = this.$route.query.page
+		this.pageNumber = page > 1 ? page : 1
 	}
 }
 </script>

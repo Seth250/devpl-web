@@ -23,7 +23,7 @@ export default new Vuex.Store({
 		setCurrentUser: (state, index) => { state.currentUser = state.users[index] }
 	},
 	actions: {
-		async fetchPageUsers({ commit }, gender, pageNumber = 1) {
+		async fetchPageUsers({ commit }, { gender, pageNumber }) {
 			let url = 'https://randomuser.me/api/?results=3'
 			let title = 'all users'
 			if (pageNumber > 1) {
@@ -47,7 +47,7 @@ export default new Vuex.Store({
 			commit('setTitle', 'user list')
 			commit('setCurrentUser', index)
 		}
-	},
-	modules: {
 	}
+	// modules: {
+	// }
 })
