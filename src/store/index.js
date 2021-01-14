@@ -9,24 +9,33 @@ export default new Vuex.Store({
 	state: {
 		title: null,
 		users: [],
+		currentUser: {},
 		countries,
 		showCountries: localStorage.getItem('showCountries') !== 'false'
 	},
-	// getters: {
-	//   getUsers: (state) => state.users
-	// },
+	getters: {
+		getPageUsers: state => state.users
+		// getMaleUsers: state => state.users.filter(user => user.gender === 'male'),
+		// getFemaleUsers: state => state.users.filter(user => user.gender === 'female')
+	},
 	mutations: {
 		setUsers: (state, { results }) => { state.users = results },
 		setTitle: (state, title) => { state.title = title },
-		setShowCountries: (state, showCountries) => { state.showCountries = showCountries }
+		setShowCountries: (state, showCountries) => { state.showCountries = showCountries },
+		setCurrentUser: (state, index) => { state.currentUser = state.users[index] }
 	},
 	actions: {
-		async fetchUsers({ commit }, gender = null) {
-			let url = 'https://randomuser.me/api/?results=20'
+		async fetchPageUsers({ commit }, gender, pageNumber = 1) {
+			let url = 'https://randomuser.me/api/?results=3'
 			let title = 'all users'
-			if (gender === 'male' || gender === 'female') {
+			if (pageNumber > 1) {
+				url += `&page=${pageNumber}`
+			}
+			if (gender) {
 				url += `&gender=${gender}`
 				title = `${gender} users`
+			} else {
+				url += '&seed=default'
 			}
 			const { data } = await axios.get(url)
 			commit('setTitle', title)
@@ -35,6 +44,10 @@ export default new Vuex.Store({
 		updateCountriesChoice({ commit }, value) {
 			localStorage.setItem('showCountries', value)
 			commit('setShowCountries', value)
+		},
+		updateCurrentUser({ commit }, index) {
+			commit('setTitle', 'user list')
+			commit('setCurrentUser', index)
 		}
 	},
 	modules: {

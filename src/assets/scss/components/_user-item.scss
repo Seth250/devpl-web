@@ -1,0 +1,109 @@
+.user-item{
+  background: #FCFCFF;
+  color: #262A41;
+  border-radius: 1.125rem;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.05);
+  width: 48.5rem;
+  height: 12.3125rem;
+  margin-bottom: 1.68em;
+  display: flex;
+  align-items: center;
+  padding-left: 2.25em;
+
+  &__image-container{
+    display: block;
+    border: 8px solid #75D6D1;
+    width: 7.0625rem;
+    height: 7.0625rem;
+    border-radius: 50%;
+    margin-right: 2em;
+  }
+
+  &__image{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  &__info{
+    // border: 1px solid green;
+    width: 78%;
+    padding-bottom: 0.2em;
+  }
+
+  &__name{
+    font-size: 1.375rem;
+    letter-spacing: -0.02px;
+    margin-bottom: 0.35em;
+  }
+
+  &__address{
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.125rem;
+    margin-bottom: 0.4em;
+    opacity: 0.72;
+  }
+
+  &__contact{
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    p{
+      opacity: 0.52;
+      margin-left: 0.4em;
+      margin-right: 1em;
+    }
+  }
+
+  &__email{
+    display: flex;
+    align-items: center;
+
+    p{
+      font-weight: 300;
+      font-size: 1.125rem;
+      padding-bottom: 0.1em;
+    }
+
+    i{
+      color: #BABDD1;
+      font-size: 135%;
+    }
+  }
+
+  &__phone{
+    display: flex;
+    align-items: center;
+
+    svg{
+      fill: #BABDD1;
+    }
+
+    p{
+      font-weight: 500;
+      font-size: 1.06rem;
+    }
+  }
+
+  &__btn{
+    position: absolute;
+    right: 0;
+    height: 3.3rem;
+    width: 3.7rem;
+    background: #30BBB5;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 2px 15px 30px #30BBB574;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i{
+      font-size: 150%;
+      color: $pry-clr;
+    }
+  }
+}

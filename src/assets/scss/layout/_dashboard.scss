@@ -2,6 +2,7 @@
   border: 1px solid blue;
   color: $pry-clr;
   min-width: 39rem;
+  // max-width: 39rem;
   margin: 0 9.5em 0 9.25em;
   padding-bottom: 2em;
 
@@ -107,9 +108,10 @@
   }
 }
 
-.btn-active:focus{
+.btn-active{
   transform: translateX(5%) scale(1.125);
-  box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
+  pointer-events: none;
 
   + p{
     bottom: 0;

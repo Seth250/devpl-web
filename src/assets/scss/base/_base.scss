@@ -5,10 +5,10 @@
 }
 
 #app{
-  min-height: 100vh;
+  height: 100vh;
   background: #262A41;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: $page-padding-top 0 $page-padding-bottom 0;
+  padding: 1.25em 0 0.8125em 0;
 }

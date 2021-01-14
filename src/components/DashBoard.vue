@@ -14,18 +14,33 @@
 			<p>Show Users</p>
 			<ul class="user-select__list">
 				<li class="user-select__item">
-					<button type="button" class="user-select__btn btn-all btn-active" @click="getUsers()">
+					<button
+						type="button"
+						class="user-select__btn btn-all"
+						:class="{ 'btn-active': genderParam === undefined }"
+						@click="getUsers()"
+					>
 						<i class="fas fa-users"></i>
 					</button>
 					<p>All users</p>
 				</li>
 				<li class="user-select__item">
-					<button type="button" class="user-select__btn btn-male" @click="getUsers('male')">
+					<button
+						type="button"
+						class="user-select__btn btn-male"
+						:class="{ 'btn-active': genderParam === 'male' }"
+						@click="getUsers('male')"
+					>
 						<i class="fas fa-male"></i></button>
 					<p>Male users</p>
 				</li>
 				<li class="user-select__item">
-					<button type="button" class="user-select__btn btn-female" @click="getUsers('female')">
+					<button
+						type="button"
+						class="user-select__btn btn-female"
+						:class="{ 'btn-active': genderParam === 'female' }"
+						@click="getUsers('female')"
+					>
 						<i class="fas fa-female"></i>
 					</button>
 					<p>Female users</p>
@@ -40,14 +55,37 @@ import { mapActions } from 'vuex'
 
 export default {
 	name: 'DashBoard',
-	methods: {
-		...mapActions(['fetchUsers']),
-		getUsers(gender = null) {
-			this.fetchUsers(gender)
+	watch: {
+		$route: {
+			immediate: true,
+			handler(newRoute) {
+				const gender = newRoute.query.gender || null
+				const pageNumber = newRoute.query.page || 1
+				if ((gender === 'male' || gender === 'female' || gender === null) && pageNumber >= 1) {
+					this.fetchPageUsers(gender, pageNumber)
+				}
+			}
 		}
 	},
-	mounted() {
-		this.fetchUsers()
+	methods: {
+		...mapActions(['fetchPageUsers']),
+		getUsers(gender = null) {
+			const routerInfo = { name: 'Home' }
+			if (gender) {
+				routerInfo.query = { gender }
+			}
+			this.$router.push(routerInfo)
+			// this.fetchUsers(gender)
+			// this.fetchUsers(gender)
+		}
+	},
+	computed: {
+		genderParam() {
+			return this.$route.query.gender
+		}
 	}
+	// created() {
+	// 	this.fetchUsers()
+	// }
 }
 </script>
