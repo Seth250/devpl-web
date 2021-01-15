@@ -1,15 +1,14 @@
 # devpl-web
 
 ## Live Link
-```
 [Click here to View](https://zlequiz.netlify.app/)
-```
+
 
 ## Technologies Used
 ```
-VueJs
-JavaScript
-CSS/SASS
+- VueJs
+- JavaScript
+- CSS/SASS
 ```
 
 
