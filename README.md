@@ -1,7 +1,7 @@
 # devpl-web
 
 ## Live Link
-[Click here to View - For 1920 x 1080 screens](https://seth-devpl-web.netlify.app/)
+[Click here to View (1920 x 1080 res)](https://seth-devpl-web.netlify.app/)
 
 
 ## Technologies Used
