@@ -5,11 +5,9 @@
 
 
 ## Technologies Used
-```
-- VueJs
-- JavaScript
-- CSS/SASS
-```
+* VueJs
+* JavaScript
+* CSS/SASS
 
 
 ## Project setup
