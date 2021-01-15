@@ -46,7 +46,8 @@ export default {
 	methods: {
 		...mapActions(['updateCurrentUser']),
 		getUserInfo() {
-			this.$router.push({ name: 'UserList', params: { username: this.user.login.username	} })
+			const gender = this.$route.query.gender
+			this.$router.push({ name: 'UserList', params: { name: `${this.user.name.first}-${this.user.name.last}` }, query: { gender } })
 			this.updateCurrentUser(this.index)
 		}
 	},

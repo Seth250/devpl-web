@@ -42,13 +42,8 @@
     font-weight: 500;
     font-style: italic;
     font-size: 1.125rem;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.5em;
     opacity: 0.72;
-
-    .country{
-      font-weight: 600;
-      font-size: 103%;
-    }
   }
 
   &__contact{
@@ -111,4 +106,9 @@
       color: $pry-clr;
     }
   }
+}
+
+.country{
+  font-weight: 600;
+  font-size: 103%;
 }

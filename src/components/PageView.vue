@@ -15,7 +15,7 @@
 					<option class="main__option" v-for="country in countries" :key="country" :value="country">{{ country }}</option>
 				</select>
 				<div class="main__toggle">
-					<div class="slider" :class="sliderStyle">
+					<div class="slider" :class="{ 'slider-active': showCountries }">
 						<input
 							type="checkbox"
 							class="slider__box"
@@ -75,27 +75,27 @@ export default {
 	methods: {
 		...mapActions(['updateCountriesChoice']),
 		getPage(number) {
-			this.$router.push({ name: 'Home', query: { page: number } })
+			const routerInfo = { name: 'Home', query: { gender: this.$route.query.gender } }
+			if (number > 1) {
+				routerInfo.query.page = number
+			}
+			this.$router.push(routerInfo)
 		}
 	},
 	computed: {
 		...mapState(['countries', 'showCountries', 'title', 'page']),
-		sliderStyle() {
-			return {
-				'slider-active': this.showCountries
-			}
-		},
 		downloadLink() {
-			let url = 'https://randomuser.me/api/?results=3&format=csv&dl&noinfo'
+			let url = 'https://randomuser.me/api/?seed=default&exc=login,coordinates,timezone&format=csv&dl&noinfo&results=3'
 			const queryParams = this.$route.query
-			if (queryParams.page) {
-				url += `&page=${queryParams.page}`
+			for (const param in queryParams) {
+				url += `&${param}=${queryParams[param]}`
 			}
-			if (queryParams.gender) {
-				url += `&$gender=${queryParams.gender}`
-			} else {
-				url += '&seed=default'
-			}
+			// if (queryParams.page) {
+			// 	url += `&page=${queryParams.page}`
+			// }
+			// if (queryParams.gender) {
+			// 	url += `&$gender=${queryParams.gender}`
+			// }
 			return url
 		},
 		isHomePage() {

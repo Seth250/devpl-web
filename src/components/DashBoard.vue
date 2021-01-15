@@ -51,25 +51,33 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
 	name: 'DashBoard',
 	watch: {
 		$route: {
 			immediate: true,
-			handler(newRoute) {
-				const gender = newRoute.query.gender
-				const payload = {
-					pageNumber: newRoute.query.page > 1 ? newRoute.query.page : 1,
-					gender: gender === 'male' || gender === 'female' ? gender : null
+			handler(newRoute, oldRoute) {
+				const genderQuery = newRoute.query.gender
+				const gender = genderQuery === 'male' || genderQuery === 'female' ? genderQuery : null
+				if (newRoute.name === 'Home') {
+					if (!oldRoute || oldRoute.name !== 'UserList') {
+						const payload = {
+							pageNumber: newRoute.query.page > 1 ? newRoute.query.page : 1,
+							gender
+						}
+						this.fetchPageUsers(payload)
+					} else {
+						this.setTitle(`${gender || 'all'} users`)
+					}
 				}
-				this.fetchPageUsers(payload)
 			}
 		}
 	},
 	methods: {
 		...mapActions(['fetchPageUsers']),
+		...mapMutations(['setTitle']),
 		getUsers(gender = null) {
 			const routerInfo = { name: 'Home' }
 			if (gender) {

@@ -1,0 +1,145 @@
+.user-list{
+  padding: 1em 0;
+
+  &__head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.4em;
+
+    i{
+      color: #30BBB5;
+      opacity: 0.61;
+      font-size: 170%;
+      margin-right: 0.7em;
+    }
+
+    p{
+      text-transform: uppercase;
+      font-size: 1.3125rem;
+      font-weight: 500;
+      opacity: 0.52;
+      letter-spacing: -0.02px;
+    }
+  }
+
+  &__main{
+    display: flex;
+    // align-items: center;
+    // border: 1px solid blue;
+  }
+
+  &__image-container{
+    display: block;
+    border: 8px solid #75D6D1;
+    width: 16.06rem;
+    height: 16.06rem;
+    border-radius: 50%;
+    margin-right: 2em;
+  }
+
+  &__image{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  &__info{
+    padding-top: 1.5em;
+    max-width: 65%;
+  }
+
+  &__name{
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    margin-bottom: 0.4em;
+    // border: 1px solid red;
+
+    > h2{
+      font-size: inherit;
+      letter-spacing: -0.03px;
+      margin-right: 0.3em;
+    }
+
+    > p{
+      font-weight: 200;
+    }
+  }
+
+  &__address{
+    // border: 1px solid red;
+    font-weight: 300;
+    letter-spacing: -0.02px;
+    opacity: 0.69;
+    font-size: 1.41rem;
+    margin-bottom: 1em;
+  }
+
+  &__email{
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 1.3em;
+    background: #e3e3ec;
+    border: 1px solid transparent;
+    border-radius: $sec-bdr-rad;
+    margin-bottom: 1.25em;
+
+    i{
+      color: #BABDD1;
+      font-size: 130%;
+      margin-right: 0.5em;
+    }
+
+    p{
+      font-size: 1.125rem;
+      opacity: 0.52;
+      font-weight: 500;
+      letter-spacing: -0.02px;
+    }
+  }
+
+  &__date-joined{
+    display: inline-flex;
+    border: 1px solid transparent;
+    padding: 0.75em 1.5em;
+    background: #f7d9f2;
+    font-weight: 600;
+    border-radius: $sec-bdr-rad;
+    margin-bottom: 1.5em;
+
+    p{
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+  }
+
+  &__contact{
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: -0.02px;
+    opacity: 0.52;
+  }
+
+  &__phone{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+    
+    svg{
+      fill: #BABDD1;
+      margin-right: 0.5em;
+    }
+  }
+
+  &__cell{
+    display: flex;
+    align-items: center;
+
+    i{
+      font-size: 150%;
+      color: #BABDD1;
+      margin-left: 0.15em;
+      margin-right: 0.55em;
+    }
+  }
+}
