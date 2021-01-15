@@ -2,7 +2,14 @@
 
 ## Live Link
 ```
-Click here to View
+[Click here to View](https://zlequiz.netlify.app/)
+```
+
+## Technologies Used
+```
+VueJs
+JavaScript
+CSS/SASS
 ```
 
 
