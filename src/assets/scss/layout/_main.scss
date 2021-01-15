@@ -224,7 +224,18 @@
   }
 }
 
-[disabled] {
+[disabled]{
   opacity: 0.6;
   pointer-events: none;
+}
+
+.slide-enter-active,
+.slide-leave-active{
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide-enter,
+.slide-leave-to{
+  transform: translateY(10%);
+  opacity: 0.3;
 }

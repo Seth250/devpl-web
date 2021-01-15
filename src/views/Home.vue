@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<UserItem v-for="(user, index) in getPageUsers" :key="index" :user="user" :index="index" />
+		<UserItem v-for="(user, index) in getPageUsers" :key="index" :user="user" :index="index"/>
 	</section>
 </template>
 

@@ -1,7 +1,7 @@
 # devpl-web
 
 ## Live Link
-[Click here to View](https://zlequiz.netlify.app/)
+[Click here to View](https://seth-devpl-web.netlify.app/)
 
 
 ## Technologies Used

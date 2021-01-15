@@ -1,5 +1,5 @@
 <template>
-	<article class="user-item">
+	<article class="user-item" v-if="inSearch">
 		<div class="user-item__image-container">
 			<img :src="user.picture.medium" alt="User Image" class="user-item__image">
 		</div>
@@ -25,6 +25,7 @@
 				</button>
 			</div>
 		</div>
+
 	</article>
 </template>
 
@@ -51,6 +52,11 @@ export default {
 			this.updateCurrentUser(this.index)
 		}
 	},
-	computed: mapState(['showCountries'])
+	computed: {
+		...mapState(['showCountries', 'searchItem']),
+		inSearch() {
+			return this.user.name.first.toLowerCase().indexOf(this.searchItem) !== -1 || this.user.name.last.toLowerCase().indexOf(this.searchItem) !== -1
+		}
+	}
 }
 </script>

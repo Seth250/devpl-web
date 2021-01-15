@@ -8,11 +8,18 @@
 					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill-rule="evenodd" clip-rule="evenodd" class="main__search-icon">
 						<path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z"/>
 					</svg>
-					<input type="search" class="main__search-input search-input" placeholder="Find in list">
+					<input
+						type="text"
+						class="main__search-input search-input"
+						placeholder="Find in list"
+						@keyup="setSearchItem($event.target.value.toLowerCase())"
+					>
 				</div>
-				<select v-model="country" class="main__select">
+				<select v-model="selectedCountry" class="main__select" @change="fetchUsers">
 					<option class="main__option" value="" disabled>Country</option>
-					<option class="main__option" v-for="country in countries" :key="country" :value="country">{{ country }}</option>
+					<option class="main__option" v-for="country in countries" :key="country.query" :value="country.query">
+						{{ country.name }}
+					</option>
 				</select>
 				<div class="main__toggle">
 					<div class="slider" :class="{ 'slider-active': showCountries }">
@@ -27,7 +34,9 @@
 				</div>
 			</div>
 		</div>
-		<router-view />
+		<transition name="slide" mode="out-in">
+			<router-view />
+		</transition>
 		<div class="main__footer">
 			<a class="main__download" :href="downloadLink" target="_blank" :disabled="!isHomePage">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="main__download-icon" version="1.1" id="Capa_1" width="30" height="30" x="0px" y="0px" viewBox="0 0 452.168 452.168" xml:space="preserve" style="enable-background:new 0 0 452.168 452.168;">
@@ -53,7 +62,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { defaultUrl } from '@/api'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
 	name: 'PageView',
@@ -67,25 +77,29 @@ export default {
 	},
 	data() {
 		return {
-			country: '',
+			selectedCountry: '',
 			titleElem: null,
 			pageNumber: null
 		}
 	},
 	methods: {
 		...mapActions(['updateCountriesChoice']),
+		...mapMutations(['setSearchItem']),
 		getPage(number) {
-			const routerInfo = { name: 'Home', query: { gender: this.$route.query.gender } }
-			if (number > 1) {
-				routerInfo.query.page = number
-			}
+			const routerInfo = this.routerInfo
+			routerInfo.query.page = number > 1 ? number : undefined
+			this.$router.push(routerInfo)
+		},
+		fetchUsers() {
+			const routerInfo = this.routerInfo
+			routerInfo.query.nat = this.selectedCountry !== 'all' ? this.selectedCountry : undefined
 			this.$router.push(routerInfo)
 		}
 	},
 	computed: {
 		...mapState(['countries', 'showCountries', 'title', 'page']),
 		downloadLink() {
-			let url = 'https://randomuser.me/api/?seed=default&exc=login,coordinates,timezone&format=csv&dl&noinfo&results=3'
+			let url = `${defaultUrl}&format=csv&dl&noinfo&results=3`
 			const queryParams = this.$route.query
 			for (const param in queryParams) {
 				url += `&${param}=${queryParams[param]}`
@@ -100,6 +114,16 @@ export default {
 		},
 		isHomePage() {
 			return this.$route.name === 'Home'
+		},
+		routerInfo() {
+			return {
+				name: 'Home',
+				query: {
+					gender: this.$route.query.gender,
+					page: this.$route.query.page,
+					nat: this.$route.query.nat
+				}
+			}
 		}
 	},
 	mounted() {
