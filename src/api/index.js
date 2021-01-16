@@ -25,6 +25,7 @@ instance.interceptors.request.use(config => {
 	return config
 })
 
-axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay })
+// axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay })
+axiosRetry(instance, { retries: 5 })
 
 export const axiosBase = instance
