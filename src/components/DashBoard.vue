@@ -73,7 +73,13 @@ export default {
 							gender,
 							nat: newRoute.query.nat
 						}
-						this.fetchPageUsers(payload)
+						try {
+							this.fetchPageUsers(payload)
+						} catch (err) {
+							if (err.response.status !== 200) {
+								throw new Error(`API call failed with status code: ${err.response.status} after 5 retry attempts`)
+							}
+						}
 					} else {
 						this.setTitle(`${gender || 'all'} users`)
 					}
@@ -85,10 +91,18 @@ export default {
 		...mapActions(['fetchPageUsers']),
 		...mapMutations(['setTitle', 'setSearchItem']),
 		getUsers(gender = null) {
-			const routerInfo = { name: 'Home' }
-			if (gender) {
-				routerInfo.query = { gender }
+			const routerInfo = {
+				name: 'Home',
+				query: {
+					page: this.$route.query.page,
+					nat: this.$route.query.nat
+				}
 			}
+			routerInfo.query.gender = gender !== null ? gender : undefined
+			// const routerInfo = { name: 'Home' }
+			// if (gender) {
+			// 	routerInfo.query = { gender }
+			// }
 			this.$router.push(routerInfo)
 		}
 	},

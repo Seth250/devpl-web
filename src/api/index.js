@@ -4,9 +4,9 @@ import axiosRetry from 'axios-retry'
 
 const seed = _.sample(['default', 'defaultseed', 'eee55e22'])
 
-const baseURL = 'https://cors-anywhere.herokuapp.com/https://randomuser.me/api/'
+const baseURL = 'https://randomuser.me/api/'
 
-export const defaultUrl = `https://randomuser.me/api/?seed=${seed}&exc=login,coordinates,timezone`
+export const defaultUrl = `${baseURL}?seed=${seed}&exc=login,coordinates,timezone`
 
 const instance = axios.create({
 	baseURL,
@@ -25,6 +25,6 @@ instance.interceptors.request.use(config => {
 	return config
 })
 
-axiosRetry(instance, { retries: 4, retryDelay: axiosRetry.exponentialDelay })
+axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay })
 
 export const axiosBase = instance
