@@ -1,7 +1,8 @@
 # devpl-web
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8970302a-7ac5-44cb-b2d0-c19637b43d57/deploy-status)](https://app.netlify.com/sites/seth-devpl-web/deploys)
 
 ## Live Link
-[Click here to View](https://seth-devpl-web.netlify.app/)
+[Click here to View (1920 x 1080 res)](https://seth-devpl-web.netlify.app/)
 
 
 ## Technologies Used
