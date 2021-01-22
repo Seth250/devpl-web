@@ -10,5 +10,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.25em 0 0.8125em 0;
+  padding: 1.15em 0 0.925em 0;
+  // padding: 1em 0;
+}
+
+@media only screen and (max-width: 1919px){
+  #app{
+    justify-content: space-around;
+    padding: 0.75em 0;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  #app{
+    height: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 }

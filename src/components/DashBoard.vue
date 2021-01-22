@@ -66,6 +66,7 @@ export default {
 			handler(newRoute, oldRoute) {
 				const genderQuery = newRoute.query.gender
 				const gender = genderQuery === 'male' || genderQuery === 'female' ? genderQuery : null
+				// making sure that new data is fetched only when the page, gender or nationality is changed
 				if (newRoute.name === 'Home') {
 					if (!oldRoute || oldRoute.name !== 'UserList') {
 						const payload = {

@@ -136,3 +136,25 @@
 .btn-female{
   background: #7946C1;
 }
+
+@media only screen and (max-width: 1919px){
+  .dashboard{
+    border: 1px solid green;
+    max-width: 25vw;
+    margin: 0 2em;
+    padding: 0;
+
+    &__heading{
+      border: 1px solid blue;
+
+      .hello{
+        border: 1px solid red;
+        font-size: 2.75rem;
+      }
+
+      span{
+        font-size: 2.1rem;
+      }
+    }
+  }
+}

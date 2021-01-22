@@ -6,8 +6,8 @@
 		<div class="user-item__info">
 			<h3 class="user-item__name">{{ user.name.first }} {{ user.name.last }}</h3>
 			<p class="user-item__address">
-				{{ user.location.street.number }} {{ user.location.street.name }}, {{ user.location.city }}, {{ user.location.state }},
-				<span v-if="showCountries" class="country"> {{ user.location.country }}</span>
+				{{ user.location.street.number }} {{ user.location.street.name }}, {{ user.location.city }},
+				{{ user.location.state }}<span v-if="showCountries" class="country">{{ user.location.country }}</span>
 			</p>
 			<div class="user-item__contact">
 				<div class="user-item__email">
@@ -25,7 +25,6 @@
 				</button>
 			</div>
 		</div>
-
 	</article>
 </template>
 

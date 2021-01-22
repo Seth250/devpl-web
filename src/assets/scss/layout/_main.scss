@@ -10,17 +10,18 @@
   width: 60.05rem;
   // min-width: 70vw;
   height: 100%;
-  padding: 4em 2em 3em 5em;
+  padding: 3em 3.5em 3em 4.05em;
 
   &__head{
-    padding-bottom: 0.25em;
+    margin-bottom: 2.3em;
+    // padding-bottom: 0.25em ;
 
     > p{
       font-weight: 300;
       font-size: 1.125rem;
       letter-spacing: -0.02px;
       opacity: 0.9;
-      margin-top: 0.7em;
+      margin-top: 0.5em;
       margin-bottom: 1.1em;
     }
   }
@@ -28,7 +29,7 @@
   &__facet{
     display: flex;
     align-items: center;
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
   }
 
   &__search{
@@ -59,7 +60,6 @@
       font-size: 1.125rem;
     }
   }
-
   
   &__select{
     margin-left: 1.56em;
@@ -69,17 +69,22 @@
     border-radius: $sec-bdr-rad;
     opacity: 0.73;
     color: #262A41;
-    padding: 0 1.2em;
-    font-weight: 600;
-    font-size: 1.125rem;
+    // padding: 0 1.2em;
+    padding-left: 1em;
+    padding-right: 1.45em;
+    // font-weight: 600;
+    // font-size: 1.1rem;
+    // font-family: inherit;
+    font: 600 1.125rem $font-stack;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: url("data:image/svg+xml,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg'><path d='m0,6l12,12l12,-12l-24,0z'/><path fill='none' d='m0,0l24,0l0,24l-24,0l0,-24z'/></svg>");
     background-repeat: no-repeat;
-    background-position-x: 92%;
+    background-position-x: 93%;
     background-position-y: 50%;
-    background-size: 1.05rem;
+    background-size: 0.85rem;
+    cursor: pointer;
 
     &::-ms-expand{
       display: none;
@@ -93,6 +98,7 @@
 
   &__toggle{
     display: flex;
+    // align-items: center;
     margin-left: 2em;
 
     p{
@@ -107,8 +113,8 @@
 
   &__footer{
     position: absolute;
-    min-width: 85%;
-    left: 5em;
+    min-width: 88.5%;
+    left: 6%;
     bottom: 2.2em;
     display: flex;
     justify-content: space-between;
@@ -120,9 +126,10 @@
     color: $pry-clr;
     display: flex;
     align-items: center;
+    // justify-content: center;
     width: 15.9rem;
     height: 3.8rem;
-    padding-left: 1.5em;
+    padding-left: 1.575em;
     border-radius: $sec-bdr-rad;
     cursor: pointer;
     text-decoration: none;
@@ -135,7 +142,7 @@
     p{
       font-weight: 600;
       font-size: 1.06rem;
-      margin-left: 1.1em;
+      margin-left: 1.05em;
       letter-spacing: -0.19px; 
     }
 
@@ -156,6 +163,9 @@
 
     .left-icon,
     .right-icon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 3.1875rem;
       height: 3rem;
       border: 1px solid transparent;
@@ -238,4 +248,114 @@
 .slide-leave-to{
   transform: translateY(10%);
   opacity: 0.3;
+}
+
+
+@media only screen and (max-width: 1919px) {
+  .main{
+    max-width: 51vw;
+    border-radius: 1.5rem;
+    padding: 1.5em 2.575%;
+
+    &__head{
+      // border: 1px solid red;
+      margin-bottom: 1.55em;
+
+      p{
+        margin-top: 0.3em;
+        margin-bottom: 0.6em;
+        font-size: 1rem;
+      }
+    }
+
+    &__facet{
+      height: 3.2rem;
+      font-size: 0.975rem;
+      justify-content: space-between;
+    }
+
+    &__search{
+      width: 45%;
+      height: 100%;
+
+      &-icon{
+        margin-right: 0.75em;
+
+        path{
+          transform: translate(5%, 10%) scale(0.85);
+        }
+      }
+
+      &-input{
+        font-size: inherit;
+      }
+    }
+
+    &__select{
+      height: 100%;
+      margin-left: 0;
+      // margin-left: 1.1em;
+      font-size: inherit;
+      background-size: 0.7rem;
+    }
+
+    &__toggle{
+      margin-left: 0;
+      align-items: center;
+
+      p{
+        font-size: inherit;
+      }
+    }
+
+    &__footer{
+      // min-width: 89%;
+      bottom: 2.65%;
+    }
+
+    &__download{
+      width: 13.5rem;
+      height: 2.95rem;
+      padding-left: 1.25em;
+
+      &-icon{
+        width: 25px;
+        height: 25px;
+      }
+
+      p{
+        font-size: 0.925rem;
+      } 
+    }
+
+    &__pagination{
+  
+      .left-icon,
+      .right-icon{
+        width: 2.55rem;
+        height: 2.4rem;
+        border-radius: 0.69rem;
+      }
+  
+      i{
+        font-size: 140%;
+      }
+    }
+  }
+
+  #title{
+    // border: 1px solid green;
+    font-size: 1.7rem;
+  }
+
+  .slider{
+    width: 2.3rem;
+    height: 1.3rem;
+    margin-bottom: 0.3em;
+
+    &__box{
+      width: 0.975rem;
+      height: 0.975rem;
+    }
+  }
 }

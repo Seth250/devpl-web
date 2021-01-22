@@ -87,6 +87,7 @@ export default {
 		...mapMutations(['setSearchItem']),
 		getPage(number) {
 			const routerInfo = this.routerInfo
+			// setting a query parameter in the router to undefined removes it from the url
 			routerInfo.query.page = number > 1 ? number : undefined
 			this.$router.push(routerInfo)
 		},
