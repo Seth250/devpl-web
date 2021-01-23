@@ -115,7 +115,7 @@
   &__footer{
     position: absolute;
     min-width: 90%;
-    left: 5.5%;
+    left: 5%;
     bottom: 2.2em;
     display: flex;
     justify-content: space-between;
@@ -252,7 +252,7 @@
 
 .slide-enter,
 .slide-leave-to{
-  transform: translateY(9.5%);
+  transform: translateY(7.5%);
   opacity: 0.3;
 }
 
