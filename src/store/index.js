@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		title: null,
-		users: [],
+		users: JSON.parse(localStorage.getItem('users')) || [],
 		currentUser: JSON.parse(localStorage.getItem('currentUser')) || {},
 		countries,
 		searchItem: '',
@@ -18,7 +18,11 @@ export default new Vuex.Store({
 		getPageUsers: state => state.users
 	},
 	mutations: {
-		setUsers: (state, { results, filterBy }) => { state.users = filterBy ? results.filter(user => user.gender === filterBy).slice(0, 3) : results },
+		setUsers: (state, { results, filterBy }) => {
+			const users = filterBy ? results.filter(user => user.gender === filterBy).slice(0, 3) : results
+			localStorage.setItem('users', JSON.stringify(users))
+			state.users = users
+		},
 		setTitle: (state, title) => { state.title = title },
 		setShowCountries: (state, showCountries) => { state.showCountries = showCountries },
 		setCurrentUser: (state, index) => {

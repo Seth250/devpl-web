@@ -56,6 +56,7 @@
 				<button type="button" class="right-icon" @click="getPage(++pageNumber)">
 					<i class="fas fa-angle-right"></i>
 				</button>
+				<p class="page-number">Page {{ pageNumber }}</p>
 			</div>
 		</div>
 	</main>
@@ -131,6 +132,10 @@ export default {
 		this.titleElem = document.getElementById('title')
 		const page = this.$route.query.page
 		this.pageNumber = page > 1 ? page : 1
+		const nat = this.$route.query.nat
+		if (this.countries.find(country => country.query === nat)) {
+			this.selectedCountry = nat
+		}
 	}
 }
 </script>

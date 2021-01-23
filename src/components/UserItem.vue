@@ -1,5 +1,5 @@
 <template>
-	<article class="user-item" v-if="inSearch">
+	<article class="user-item" v-show="inSearch">
 		<div class="user-item__image-container">
 			<img :src="user.picture.medium" alt="User Image" class="user-item__image">
 		</div>

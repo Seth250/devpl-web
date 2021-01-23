@@ -45,8 +45,9 @@
   }
 
   &__info{
+    // border: 1px solid red;
     padding-top: 1.5em;
-    max-width: 65%;
+    width: 60%;
   }
 
   &__name{
@@ -59,7 +60,7 @@
     > h2{
       font-size: inherit;
       letter-spacing: -0.03px;
-      margin-right: 0.3em;
+      margin-right: 0.35em;
     }
 
     > p{
@@ -141,6 +142,143 @@
       color: #BABDD1;
       margin-left: 0.15em;
       margin-right: 0.55em;
+    }
+  }
+}
+
+@media only screen and (max-width: 1919px){
+  .user-list{
+
+    &__head{
+      margin-bottom: 1.675em;
+      // border: 1px solid red;
+
+      i{
+        font-size: 125%;
+      }
+
+      p{
+        font-size: 1.185rem;
+      }
+    }
+
+    &__name{
+      font-size: 1.735rem;
+    }
+
+    &__address{
+      font-size: 1.15rem;
+    }
+
+    &__email{
+      padding: 0.65em 1.125em;
+      margin-bottom: 1.05em;
+
+      i{
+        font-size: 117.5%;
+      }
+
+      p{
+        font-size: 0.975rem;
+      }
+    }
+
+    &__date-joined{
+      padding: 0.6em 1.25em;
+      border-radius: $sec-bdr-rad;
+      margin-bottom: 1.2em;
+
+      p{
+        font-size: 0.9rem;
+      }
+    }
+
+    &__contact{
+      font-size: 0.925rem;
+    }
+
+    &__phone{
+      margin-bottom: 1.35em;
+
+      svg{
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__cell{
+
+      i{
+        font-size: 125%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px){
+  .user-list__image-container{
+    width: 15rem;
+    height: 15rem;
+    margin-right: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .user-list{
+
+    &__image-container{
+      border-width: 7px;
+      width: 12.5rem;
+      height: 12.5rem;
+      margin-right: 0;
+    }
+
+    &__main{
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__info{
+      align-self: flex-start;
+      width: 94%;
+    }
+
+    &__name{
+      font-size: 1.375rem;
+    }
+
+    &__address{
+      font-size: 1.05rem;
+    }
+
+    &__email{
+      padding: 0.5em 0.85em;
+      margin-bottom: 0.85em;
+
+      i{
+        font-size: 102.5%;
+      }
+
+      p{
+        font-size: 0.875rem;
+      }
+    }
+
+    &__date-joined{
+      padding: 0.45em 0.9em;
+      margin-bottom: 0.85em;
+
+      p{
+        font-size: 0.775rem;
+      }
+    }
+
+    &__contact{
+      font-size: 0.85rem;
+    }
+
+    &__phone{
+      margin-bottom: 1.05em;
     }
   }
 }

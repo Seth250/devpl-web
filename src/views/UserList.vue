@@ -14,8 +14,8 @@
 					<p>{{ currentUser.dob.age }}</p>
 				</div>
 				<p class="user-list__address">
-					{{ currentUser.location.street.number }} {{ currentUser.location.street.name }}, {{ currentUser.location.city }}, {{ currentUser.location.state }},
-					<span v-if="showCountries" class="country"> {{ currentUser.location.country }}</span>
+					{{ currentUser.location.street.number }} {{ currentUser.location.street.name }}, {{ currentUser.location.city }},
+					{{ currentUser.location.state }}<span v-if="showCountries" class="country"> {{ currentUser.location.country }}</span>
 				</p>
 				<div class="user-list__email">
 					<i class="far fa-envelope"></i>

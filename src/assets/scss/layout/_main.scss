@@ -2,12 +2,13 @@
   position: relative;
   background: #F7F7FF;
   color: #262A41;
-  border-radius: 1.75rem;
+  border-radius: $pry-bdr-rad;
   border: 1px solid #707070;
   display: flex;
   flex-direction: column;
   // min-width: 50vw;
   width: 60.05rem;
+  max-width: 50.5vw;
   // min-width: 70vw;
   height: 100%;
   padding: 3em 3.5em 3em 4.05em;
@@ -113,8 +114,8 @@
 
   &__footer{
     position: absolute;
-    min-width: 88.5%;
-    left: 6%;
+    min-width: 90%;
+    left: 5.5%;
     bottom: 2.2em;
     display: flex;
     justify-content: space-between;
@@ -188,6 +189,11 @@
       color: $pry-clr; 
       // margin-right: 2em;
     }
+
+    .page-number{
+      margin-left: 0.45em;
+      font-size: 0.9em;
+    }
   }
 }
 
@@ -246,22 +252,21 @@
 
 .slide-enter,
 .slide-leave-to{
-  transform: translateY(10%);
+  transform: translateY(9.5%);
   opacity: 0.3;
 }
 
 
 @media only screen and (max-width: 1919px) {
   .main{
-    max-width: 51vw;
-    border-radius: 1.5rem;
-    padding: 1.5em 2.575%;
+    border-radius: $md-bdr-rad;
+    padding: 1.75em 2.575%;
 
     &__head{
       // border: 1px solid red;
-      margin-bottom: 1.55em;
+      margin-bottom: 1.75em;
 
-      p{
+      > p{
         margin-top: 0.3em;
         margin-bottom: 0.6em;
         font-size: 1rem;
@@ -334,7 +339,6 @@
       .right-icon{
         width: 2.55rem;
         height: 2.4rem;
-        border-radius: 0.69rem;
       }
   
       i{
@@ -351,11 +355,125 @@
   .slider{
     width: 2.3rem;
     height: 1.3rem;
-    margin-bottom: 0.3em;
 
     &__box{
       width: 0.975rem;
       height: 0.975rem;
     }
   }
+}
+
+@media only screen and (max-width: 1440px){
+  .main{
+    padding: 1.4em 2.25%;
+  }
+}
+
+@media only screen and (max-width: 1366px){
+  .main{
+    max-width: 52.5vw;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .main{
+    max-width: 50rem;
+    width: 90%;
+    padding: 1.5em 3.25%;
+    height: 54rem;
+    max-height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .main{
+    border-radius: 1rem;
+    max-width: 28rem;
+    width: 96%;
+    max-height: 54rem;
+    padding: 1em 2.5%;
+
+    &__head{
+      margin-bottom: 5em;
+
+      > p{
+        font-size: 0.9rem;
+      }
+    }
+
+    &__facet{
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    &__search{
+      width: 100%;
+      height: 3.1rem;
+      margin-bottom: 0.9em;
+      padding: 0 0.9em;
+      border-radius: 1.4rem;
+    }
+
+    &__select{  
+      height: 3.1rem;
+      padding-left: 0.85em;
+      padding-right: 1.55em;
+      background-size: 0.7rem;
+      border-radius: 1.4rem;
+    }
+
+    &__toggle{
+      margin-left: 0.7em;
+      display: inline-flex;
+    }
+
+    &__footer{
+      min-width: 96%;
+      left: 2%;
+    }
+
+    &__download{
+      width: 11.95rem;
+      height: 2.6rem;
+      padding-left: 1.05em;
+
+      &-icon{
+        width: 20px;
+        height: 20px;
+      }
+
+      p{
+        font-size: 0.85rem;
+      }
+    }
+
+    &__pagination{
+      
+      .left-icon,
+      .right-icon{
+        width: 2.325rem;
+        height: 2.15rem;
+      }
+
+      i{
+        font-size: 125%;
+      }
+    }
+  }
+
+  #title{
+    font-size: 1.275rem;
+  }
+
+  .slider{
+    width: 2rem;
+    height: 1.125rem;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+
+    &__box{
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  } 
 }
